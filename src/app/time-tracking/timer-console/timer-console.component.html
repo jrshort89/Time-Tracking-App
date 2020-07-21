@@ -1,0 +1,41 @@
+<form [formGroup]="timerForm" (ngSubmit)="onStopTimer()">
+    <div>
+        <div class="col-xs-12">
+
+            <div class="panel panel-default">
+                <div class="panel-footer">
+                    <table class="table">
+                        <thead scope="col">
+                            <tr>
+                                <!-- <td scope="col">Project</td>
+                                    <td scope="col">Description</td>
+                                    <td scope="col">Time</td> -->
+                                <td></td>
+                                <td>Project Name:</td>
+                                <td>Project Description:</td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <div *ngIf="!timeTrackerService.start">
+                                        <button class="btn btn-primary" (click)="onStartTimer()" type="button">Start</button>
+                                    </div>
+                                    <div *ngIf="timeTrackerService.start">
+                                        <button class="btn btn-danger" type="submit">Stop</button>
+                                    </div>
+                                    <td><input type="text" id="name" class="form-control" formControlName="name"></td>
+                                    <td><input type="text" id="description" class="form-control" formControlName="description"></td>
+                                    <td class="timer">
+                                        {{ timeTrackerService.currentTimeTracked }}
+                                    </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <app-time-list *ngFor="let project of projects; 
+            let i = index" [projects]="project" [index]="i"></app-time-list>
+        </div>
+    </div>
+</form>

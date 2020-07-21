@@ -1,0 +1,75 @@
+<div class="row">
+    <div class="col-xs-12">
+        <form [formGroup]="projectForm" (ngSubmit)="onSubmit()">
+            <div class="row">
+                <div class="col-xs-12">
+                    <button type="submit" class="btn btn-success" [disabled]="!projectForm.valid">
+              Save
+            </button>
+                    <button type="button" class="btn btn-danger" (click)="onCancel()">
+              Cancel
+            </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" formControlName="name" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="imagePath">Description</label>
+                        <input type="text" id="description" formControlName="description" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="description">Start Time</label>
+                        <input type="text" id="startTime" class="form-control" formControlName="startTime">
+                        <span class="alert-danger" *ngIf="!projectForm.get('startTime').valid && projectForm.get('startTime').touched">
+                            Please enter a valid time!
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="description">End Time</label>
+                        <input type="text" id="endTime" class="form-control" formControlName="endTime" required>
+                        <span class="alert-danger" *ngIf="!projectForm.get('endTime').valid && projectForm.get('endTime').touched">
+                            Please enter a valid time!
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <label for="description">Date</label>
+                        <input type="text" id="dateTracked" class="form-control" formControlName="dateTracked" required pattern="(0?[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d">
+                        <span class="alert-danger" *ngIf="!projectForm.get('dateTracked').valid && projectForm.get('dateTracked').touched">
+                            Please enter a valid date!
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <!-- <label class="form-control" for="projectTotalTime" formControlName="projectTotalTime">Total Time</label>
+                        <input type="text" class="form-control" id="projectTotalTime" formControlName="projectTotalTime"> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+            </div>
+        </form>
+    </div>
+</div>

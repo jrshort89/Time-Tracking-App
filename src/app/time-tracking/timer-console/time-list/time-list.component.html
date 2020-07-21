@@ -1,0 +1,47 @@
+<form #f="ngForm">
+    <div class="panel panel-primary">
+        <div class="panel-body">
+            <tr>
+                <th>{{ projects.dateTracked }}</th>
+            </tr>
+        </div>
+        <div class="panel-footer">
+            <table class="table">
+                <tbody scope="row">
+                    <tr>
+                        <th>
+                            <td>
+                                <div class="row">
+                                    <div class="col-xs-12">
+                                        <div>
+                                            <button class="btn btn-danger" (click)="onDeleteTrackedTime(index)">Delete</button> |
+                                            <button type="button" class="btn btn-primary" style="cursor: pointer;" (click)="onEditProject(index)">
+                                          Edit 
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <label>Start: &nbsp;</label>{{ projects.startTime }}
+                            </td>
+                            <td>
+                                <label>End: &nbsp;</label>{{ projects.endTime }}
+                            </td>
+                            <td>
+                                <label>Total:</label> {{ updateTotalTime(projects.startTime, projects.endTime) }}
+                            </td>
+                    </tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        &nbsp;&nbsp;<label>Name: &nbsp;</label>{{ projects.name }}
+                    </td>
+                    <td>
+                        &nbsp;&nbsp;<label>Description: &nbsp;</label>{{ projects.description }}
+                    </td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</form>
